@@ -88,17 +88,3 @@ inquirer.prompt([
         console.log(err);
     }
 })
-
-// // TODO: Create a function to write README file
-
-
-// // TODO: Create a function to initialize app
-// function init() {
-//     inquirer.prompt(questions).then((promise) => 
-// // console.log(generateMarkdown(promise)),
-// writeToFile(promise.title,generateMarkdown(promise))
-// );
-// }
-
-// // Function call to initialize app
-// init();
