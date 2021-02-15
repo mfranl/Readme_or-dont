@@ -7,7 +7,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 // TODO: Create an array of questions for user input
-const questions = [
+inquirer.prompt([
     {
         type:"input",
         message:"Project Title:",
@@ -61,14 +61,44 @@ const questions = [
         type:"input",
         message:"Email address:",
         name:"Email"
+    },
+
+]).then((response) => {
+
+
+
+
+    const newFile = `README.md`;
+
+    fs.writeFile(newFile, generateMarkdown(response), (err, data) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log('works')
+            }
+        }
+
+    )
+
+
+
+}).catch(function (err) {
+    if (err) {
+        console.log("WRONG")
+        console.log(err);
     }
-];
+})
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// // TODO: Create a function to write README file
 
-// TODO: Create a function to initialize app
-function init() {}
 
-// Function call to initialize app
-init();
+// // TODO: Create a function to initialize app
+// function init() {
+//     inquirer.prompt(questions).then((promise) => 
+// // console.log(generateMarkdown(promise)),
+// writeToFile(promise.title,generateMarkdown(promise))
+// );
+// }
+
+// // Function call to initialize app
+// init();
